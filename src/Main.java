@@ -20,15 +20,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
-        // Pedir a URL ao usuário
+        //pedir a url ao usuário
         System.out.print("Digite a URL da página: ");
         String urlPagina = scanner.nextLine();
 
-        // Conectar ao site
+        //conectar ao site
         Document doc = Jsoup.connect(urlPagina).get();
         Elements pdfLinks = doc.select("[href$=.pdf]");
 
-        // Lista para armazenar arquivos a serem baixados
+        //lista para armazenar arquivos a serem baixados
         List<String> arquivosBaixados = new ArrayList<>();
 
         for (Element link : pdfLinks) {
